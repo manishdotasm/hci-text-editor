@@ -13,7 +13,7 @@ export default function Component() {
     <nav className="flex items-center justify-between p-4 bg-background">
       <div className="flex items-center space-x-2">
         <Image src={Logo} alt="Logo" width={32} height={32} className="w-8 h-8" />
-        <span className={`text-2xl font-extrabold ${orbitron.className} bg-clip-text`}>TEXI</span>
+        <h1 className={`text-2xl font-extrabold ${orbitron.className} bg-clip-text`}>TEXI</h1>
       </div>
 
       <div className="flex items-center space-x-2">

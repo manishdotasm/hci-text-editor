@@ -1,9 +1,14 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-type SpinnerProps = React.SVGProps<SVGSVGElement>;
+type SpinnerProps = React.SVGProps<SVGSVGElement> & {
+  label?: string; // Optional label for accessibility
+};
 
-const SpinnerComponent = React.forwardRef<SVGSVGElement, SpinnerProps>(function Spinner({ className, ...props }, ref) {
+const SpinnerComponent = React.forwardRef<SVGSVGElement, SpinnerProps>(function Spinner(
+  { className, label = "Loading...", ...props },
+  ref
+) {
   return (
     <svg
       ref={ref}
@@ -11,6 +16,9 @@ const SpinnerComponent = React.forwardRef<SVGSVGElement, SpinnerProps>(function 
       fill="none"
       viewBox="0 0 24 24"
       className={cn("animate-spin", className)}
+      role="status" // Indicates the spinner is a status indicator
+      aria-live="polite" // Announces updates politely to screen readers
+      aria-label={label} // Provides an accessible label
       {...props}
     >
       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
